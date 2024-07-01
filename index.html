@@ -361,15 +361,26 @@
       <script>
       	const targetDiv = document.getElementById('pics-container');
       	
-      	for (let i = 1; i <= 250; i++) {
-      	    const div = document.createElement('div');
-      	    const img = document.createElement('img');
-      	    img.src = `pics/${i}.jpg`;
-      	    img.style.width = "100%";  
+      	// images that break on load
+	const forbiddenArray = [29, 60, 93, 136, 155, 158, 163, 203, 253];
+	
+	// filter the broken images out
+	for(let i = 1; i <= 250; i++){
+	  if(i === array1.find((element) => element >= i)){
+	  	continue;
+		}
+	  else{
+		const div = document.createElement('div');
+	        const img = document.createElement('img');
+	        img.src = `pics/${i}.jpg`;
+	        img.style.width = "100%";  
+	        // append images to file
+	        div.appendChild(img);
+	        targetDiv.appendChild(div);
+	  }
+	}
       	    
-      	    div.appendChild(img);
-      	    targetDiv.appendChild(div);
-      	}
+
       </script>
     </div>
 	  
