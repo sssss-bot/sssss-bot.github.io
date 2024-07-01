@@ -345,17 +345,7 @@
       <p>Ya don't think building a website one handed was easy...right?</p>
     </div>
 
-    <script>
-	const targetDiv = document.getElementById('pics-container');
-	
-	for (let i = 1; i <= 100; i++) {
-	    const div = document.createElement('div');
-	    const img = document.createElement('img');
-	    img.src = `pics/${i}.jpg`;
-	    div.appendChild(img);
-	    targetDiv.appendChild(div);
-	}
-    </script>
+    
 	  
     <div id="pics" class="submenu">
       <div id="pics-container" class="grid">
@@ -363,7 +353,17 @@
 	      <!--I'm not about to type out 100 img tags-->
 	      
       </div>
-
+    <script>
+	const targetDiv = document.getElementById('pics-container');
+	
+	for (let i = 1; i <= 250; i++) {
+	    const div = document.createElement('div');
+	    const img = document.createElement('img');
+	    img.src = `pics/${i}.jpg`;
+	    div.appendChild(img);
+	    targetDiv.appendChild(div);
+	}
+    </script>
     </div>
 	  
     <div id="kittyxkum">
