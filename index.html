@@ -14,7 +14,12 @@
         minmax(200px, 1fr));
       grid-gap: 10px
   }
-
+#pics-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fill,
+        minmax(200px, 1fr));
+      grid-gap: 10px
+  }
   .grid>div {
       font-size: 20px;
       color: yellow;
@@ -353,18 +358,19 @@
 	      <!--I'm not about to type out 100 img tags-->
 	      
       </div>
-    <script>
-	const targetDiv = document.getElementById('pics-container');
-	
-	for (let i = 1; i <= 250; i++) {
-	    const div = document.createElement('div');
-	    const img = document.createElement('img');
-	    img.src = `pics/${i}.jpg`;
-	    img.style.width = "100%";
-	    div.appendChild(img);
-	    targetDiv.appendChild(div);
-	}
-    </script>
+      <script>
+      	const targetDiv = document.getElementById('pics-container');
+      	
+      	for (let i = 1; i <= 100; i++) {
+      	    const div = document.createElement('div');
+      	    const img = document.createElement('img');
+      	    img.src = `pics/${i}.jpg`;
+      	    img.style.width = "100%";  
+      	    
+      	    div.appendChild(img);
+      	    targetDiv.appendChild(div);
+      	}
+      </script>
     </div>
 	  
     <div id="kittyxkum">
