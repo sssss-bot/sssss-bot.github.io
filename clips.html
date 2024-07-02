@@ -58,15 +58,27 @@
 	});
 
   </script>
-  <div id="kittyxkum">
-    <div class="grid">
-      <div>
-        <video src="clips/c1.mp4"></video>
-      </div>
+  
+  <div id="clips-container">
+	<div class="grid">
+		<!--Automate the creation with JavaScript
+		    The greatest thing ever they said
+	            It'd be fun they said...
+		-->
+  	</div>
+	<script>
+	const targetDiv = document.getElementById('pics-container');
 
-      
-  </div>
-    
+	for (let i = 1; i <= 23; i++) {
+	    const div = document.createElement('div');
+	    const vid = document.createElement('video');
+	    vid.src = `clips/${i}.mp4`;
+	    vid.style.width = "100%";  
+	    div.appendChild(vid);
+	    targetDiv.appendChild(div);
+	}
+	
+	</script>
   </div>
 
 <!--
