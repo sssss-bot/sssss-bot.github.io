@@ -64,7 +64,8 @@
 	    const div = document.createElement('div');
 	    const vid = document.createElement('video');
 	    vid.src = `clips/${i}.mp4`;
-	    vid.style.width = "100%";  
+	    vid.style.width = "100%"; 
+	    vid.controls = false;
 	    div.appendChild(vid);
 	    targetDiv.appendChild(div);
 	}
