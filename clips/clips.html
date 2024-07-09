@@ -3,24 +3,39 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Play Video on Scroll</title>
-<link rel="stylesheet" href="css/styles.css">
+<title>Kittyxkum Leaked Clips</title>
+<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-<div class="container">
-  <div class="video-container">
-    <video id="myVideo" width="640" height="360" controls>
-      <source src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/WhatCarCanYouGetForAGrand.mp4" type="video/mp4">
-      Your browser does not support the video tag.
-    </video>
+  <div class="js-container">
+    
+    
+    
   </div>
-  <div class="content">
-    <p>Scroll down to see the video play...</p>
-    <!-- Add more content here -->
-  </div>
-</div>
-
-<script src="js/script.js"></script>
+  
+  <script>
+  // dynamic loading from the files (woo-hoo)
+  const targetDiv = document.getElementById('js-container');
+  const numVideos = 100
+	// videos that break on load
+	const forbiddenArray = [29, 60, 93, 136, 155, 158, 163, 203, 253, 334, 357, 368];
+	
+	// filter the broken videos out
+	for (let i = 1; i <= numVideos; i++) {
+	  if (forbiddenArray.includes(i)) {
+	    continue; // Skip this iteration if i is in forbiddenArray
+	  } else {
+	    const div = document.createElement('div');
+	    const vid = document.createElement('video');
+	    vid.src = `content/${i}.mp4`;
+	    vid.muted = true;  
+	    vid.loop = true;
+	    div.appendChild(img);
+	    targetDiv.appendChild(div);
+	  }
+	}
+  </script>
+      
+  <script src="js/script.js"></script>
 </body>
 </html>
-
