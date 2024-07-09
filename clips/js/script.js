@@ -1,35 +1,31 @@
-document.addEventListener('DOMContentLoaded', function() {
-  let video = document.getElementById('myVideo');
-  let videoContainer = document.querySelector('.video-container');
-  let played = false;
+// Function to check if an element is in viewport
+function isElementInViewport(el) {
+  var rect = el.getBoundingClientRect();
+  return (
+    rect.top >= 0 &&
+    rect.bottom <= (window.innerHeight || document.documentElement.clientHeight)
+  );
+}
 
-  // Function to check if element is in view
-  function isInViewport(element) {
-    let rect = element.getBoundingClientRect();
-    return (
-      rect.top >= 0 &&
-      rect.left >= 0 &&
-      rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
-      rect.right <= (window.innerWidth || document.documentElement.clientWidth)
-    );
-  }
+// Function to handle autoplay and pause
+function handleAutoplay() {
+  var videos = document.querySelectorAll('.video');
 
-  // Function to play video when in view
-  function playVideoIfInView() {
-    if (!played && isInViewport(videoContainer)) {
+  // Loop through each video element
+  videos.forEach(function(video) {
+    // Check if video is in viewport
+    if (isElementInViewport(video)) {
       video.play();
-      played = true;
-    } else if (played && !isInViewport(videoContainer)) {
+    } else {
       video.pause();
-      played = false;
     }
-  }
-
-  // Check if video is in view on initial load
-  playVideoIfInView();
-
-  // Check if video is in view on scroll
-  window.addEventListener('scroll', function() {
-    playVideoIfInView();
   });
+}
+
+// Event listener for scrolling
+window.addEventListener('scroll', function() {
+  handleAutoplay();
 });
+
+// Initial check on page load
+handleAutoplay();
