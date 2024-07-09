@@ -45,24 +45,57 @@
   <script>
   // dynamic loading from the files (woo-hoo)
   const targetDiv = document.getElementById('js-container');
-  const numVideos = 100
-	// videos that break on load
-	const forbiddenArray = [29, 60, 93, 136, 155, 158, 163, 203, 253, 334, 357, 368];
-	
-	// filter the broken videos out
-	for (let i = 1; i <= numVideos; i++) {
-	  if (forbiddenArray.includes(i)) {
-	    continue; // Skip this iteration if i is in forbiddenArray
-	  } else {
-	    const div = document.createElement('div');
-	    const vid = document.createElement('video');
-	    vid.src = `content/${i}.mp4`;
-	    vid.muted = true;  
-	    vid.loop = true;
-	    div.appendChild(vid);
-	    targetDiv.appendChild(div);
-	  }
-	}
+  const numVideos = 8
+  // videos that break on load
+  const forbiddenArray = [29, 60, 93, 136, 155, 158, 163, 203, 253, 334, 357, 368];
+
+  // filter the broken videos out
+  for (let i = 1; i <= numVideos; i++) {
+    if (forbiddenArray.includes(i)) {
+      continue; // Skip this iteration if i is in forbiddenArray
+    } else {
+      const div = document.createElement('div');
+      const vid = document.createElement('video');
+      vid.src = `content/${i}.mp4`;
+      vid.muted = true;  
+      vid.loop = true;
+      div.appendChild(vid);
+      targetDiv.appendChild(div);
+    }
+  }
+
+
+// Function to check if an element is in viewport
+function isElementInViewport(el) {
+  var rect = el.getBoundingClientRect();
+  return (
+    rect.top >= 0 &&
+    rect.bottom <= (window.innerHeight || document.documentElement.clientHeight)
+  );
+}
+
+// Function to handle autoplay and pause
+function handleAutoplay() {
+  var videos = document.querySelectorAll('.video');
+
+  // Loop through each video element
+  videos.forEach(function(video) {
+    // Check if video is in viewport
+    if (isElementInViewport(video)) {
+      video.play();
+    } else {
+      video.pause();
+    }
+  });
+}
+
+// Event listener for scrolling
+window.addEventListener('scroll', function() {
+  handleAutoplay();
+});
+
+// Initial check on page load
+handleAutoplay();
   </script>
       
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js" integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU" crossorigin="anonymous"></script>
